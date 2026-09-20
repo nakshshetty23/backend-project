@@ -1,0 +1,17 @@
+{
+  "name": "chai_backend",
+  "version": "1.0.0",
+  "description": "A backend project 1 (maybe)",
+  "keywords": [
+    "javascript",
+    "backend",
+    "coffee"
+  ],
+  "license": "ISC",
+  "author": "Naksh K Shetty",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
