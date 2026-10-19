@@ -15,6 +15,8 @@ router.route("/register").post(
         },
     ]),
     registerUser)
- // router.route("/login").post(login) // TODO: import login controller before enabling
+router.route("/login").post(login) 
+
+router.route("/logout").post(verifyJWT, logoutUser)
 
 export default router
