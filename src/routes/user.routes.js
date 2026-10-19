@@ -1,6 +1,10 @@
 import { Router } from "express";
-import { registerUser } from "../controllers/user.controller.js";
-import {upload} from "../middlewares/multer.middleware.js"
+// 1. Import all three controllers
+import { registerUser, loginUser, logoutUser } from "../controllers/user.controller.js";
+import { upload } from "../middlewares/multer.middleware.js";
+// 2. Import your auth middleware (assuming you created it)
+import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { refreshAccessToken } from "../controllers/user.controller.js";
 const router = Router()
 
 router.route("/register").post(
@@ -15,8 +19,13 @@ router.route("/register").post(
         },
     ]),
     registerUser)
-router.route("/login").post(login) 
 
+// 3. Use loginUser (not login)
+router.route("/login").post(loginUser)
+
+// 4. Add verifyJWT to logout
 router.route("/logout").post(verifyJWT, logoutUser)
+router.route("/refreshToken").post(refreshAccessToken)
+
 
 export default router
